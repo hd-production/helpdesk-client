@@ -12,4 +12,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class HelpdeskRoutingrModule { }
+export class HelpdeskRoutingModule { }
