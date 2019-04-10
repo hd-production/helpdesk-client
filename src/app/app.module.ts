@@ -8,6 +8,7 @@ import {StorageService} from "./services/storage.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./services/auth.interceptor";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TicketService} from "./modules/helpdesk/services/ticket.service";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   ],
   providers: [
     AuthService,
+    TicketService,
     StorageService,
     {
       provide: HTTP_INTERCEPTORS,

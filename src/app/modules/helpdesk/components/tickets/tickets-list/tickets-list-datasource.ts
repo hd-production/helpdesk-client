@@ -11,7 +11,7 @@ export interface TicketListItem {
 }
 
 @Injectable()
-export class ProjectsListDataSource extends DataSource<TicketListItem> {
+export class TicketsListDataSource extends DataSource<TicketListItem> {
 
   constructor(
     private ticketsEmitter: Observable<Ticket[]>

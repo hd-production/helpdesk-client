@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TicketsListDataSource} from "./tickets-list-datasource";
+import {Observable} from "rxjs";
+import {Ticket} from "../../../models/ticket";
 
 @Component({
   selector: 'app-tickets-list',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tickets-list.component.scss']
 })
 export class TicketsListComponent implements OnInit {
+  dataSource: TicketsListDataSource;
+  @Input()
+  public ticketsObservable: Observable<Ticket[]>;
 
-  constructor() { }
+  constructor() {}
+
+  displayedColumns = ['id', 'issue'];
 
   ngOnInit() {
+    this.dataSource = new TicketsListDataSource(this.ticketsObservable);
   }
-
 }
