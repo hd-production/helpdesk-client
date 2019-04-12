@@ -15,9 +15,10 @@ import {
 import {ReactiveFormsModule} from "@angular/forms";
 import {TicketsListComponent} from "./components/tickets/tickets-list/tickets-list.component";
 import {TicketsComponent} from "./components/tickets/tickets.component";
+import {TicketPageComponent} from "./components/tickets/ticket-page/ticket-page.component";
 
 @NgModule({
-  declarations: [HelpdeskComponent, TicketsListComponent, TicketsComponent],
+  declarations: [HelpdeskComponent, TicketsListComponent, TicketsComponent, TicketPageComponent],
   imports: [
     CommonModule,
     HelpdeskRoutingModule,

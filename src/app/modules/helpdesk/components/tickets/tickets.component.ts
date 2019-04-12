@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {switchMap, tap} from 'rxjs/operators';
+import {Observable, Subject} from 'rxjs';
 import {MatDialog} from '@angular/material';
-import {Ticket} from "../../models/ticket";
 import {TicketService} from "../../services/ticket.service";
+import {TicketListItem} from "./tickets-list/tickets-list-datasource";
 
 @Component({
   selector: 'app-tickets',
@@ -12,7 +11,7 @@ import {TicketService} from "../../services/ticket.service";
 })
 export class TicketsComponent implements OnInit {
 
-  private ticketsSubject = new Subject<Ticket[]>();
+  private ticketsSubject = new Subject<TicketListItem[]>();
   public ticketsObservable = this.ticketsSubject.asObservable();
 
   constructor(
@@ -22,7 +21,7 @@ export class TicketsComponent implements OnInit {
 
   ngOnInit() {
     this.ticketService.find()
-      .subscribe(projects => this.ticketsSubject.next(projects));
+      .subscribe(tickets => this.ticketsSubject.next(tickets));
   }
 
 }

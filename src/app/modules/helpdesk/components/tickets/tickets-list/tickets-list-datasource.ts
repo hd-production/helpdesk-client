@@ -1,8 +1,6 @@
 import { DataSource } from '@angular/cdk/collections';
-import { map } from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {Ticket} from "../../../models/ticket";
 
 export interface TicketListItem {
   id: number;
@@ -14,28 +12,15 @@ export interface TicketListItem {
 export class TicketsListDataSource extends DataSource<TicketListItem> {
 
   constructor(
-    private ticketsEmitter: Observable<Ticket[]>
+    private ticketsEmitter: Observable<TicketListItem[]>
   ) {
     super();
   }
 
   public connect(): Observable<TicketListItem[]> {
-    return this.ticketsEmitter
-      .pipe(
-        map((tickets: Ticket[]) => {
-          return tickets.map(project => this.mapToListItem(project));
-        })
-      );
+    return this.ticketsEmitter;
   }
 
   public disconnect() {}
-
-  private mapToListItem(ticket: Ticket): TicketListItem {
-    return {
-      id: ticket.id,
-      issue: ticket.issue,
-      assigneeId : ticket.assigneeId
-    };
-  }
 
 }

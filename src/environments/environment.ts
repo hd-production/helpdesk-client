@@ -10,7 +10,7 @@ export const environment = {
     port: '5001',
     prefix: 'v0',
     getUrl() {
-      return `${this.protocol}://${this.host}:${this.port}/${this.prefix}`;
+      return `${this.protocol}://${this.host}:${this.port}`;
     }
   }
 };

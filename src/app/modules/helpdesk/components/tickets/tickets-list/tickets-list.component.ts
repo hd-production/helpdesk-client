@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TicketsListDataSource} from "./tickets-list-datasource";
+import {TicketListItem, TicketsListDataSource} from "./tickets-list-datasource";
 import {Observable} from "rxjs";
-import {Ticket} from "../../../models/ticket";
 
 @Component({
   selector: 'app-tickets-list',
@@ -11,7 +10,7 @@ import {Ticket} from "../../../models/ticket";
 export class TicketsListComponent implements OnInit {
   dataSource: TicketsListDataSource;
   @Input()
-  public ticketsObservable: Observable<Ticket[]>;
+  public ticketsObservable: Observable<TicketListItem[]>;
 
   constructor() {}
 
