@@ -4,7 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [

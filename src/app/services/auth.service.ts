@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {LoginForm} from '../modules/auth/models/login-form';
-// import {RegisterForm} from '../auth/models/register-form';
 import {Md5} from 'ts-md5';
 import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient} from '@angular/common/http';
@@ -10,7 +9,7 @@ import {StorageService} from './storage.service';
 import {LoginResponse} from '../modules/auth/models/login-response';
 import {of} from 'rxjs';
 import * as jwtDecode from 'jwt-decode';
-import {RegisterForm} from "../modules/auth/models/register-form";
+import {RegisterForm} from '../modules/auth/models/register-form';
 
 const USERS_URL = `${environment.api.getUrl()}/users`;
 const SESSIONS_URL = `${environment.api.getUrl()}/sessions`;
@@ -40,8 +39,11 @@ export class AuthService {
     return this.http.post(USERS_URL, loginData);
   }
 
-  public isTokenValid(): boolean {
+  public isAuthorized(): boolean {
     const token = this.storageService.get('token');
+    if (!token) {
+      return false;
+    }
     const decodedJwt = jwtDecode(token) as {exp: number};
     return (new Date()).getTime() / MILLISECONDS_IN_SECOND < decodedJwt.exp;
   }
@@ -65,5 +67,4 @@ export class AuthService {
       pwdHash: Md5.hashStr(form.password)
     };
   }
-
 }
