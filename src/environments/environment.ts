@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    protocol: 'http',
+    host: '192.168.128.22',
+    port: '5001',
+    prefix: 'v0',
+    getUrl() {
+      return `${this.protocol}://${this.host}:${this.port}`;
+    }
+  }
 };
 
 /*

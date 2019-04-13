@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AuthService} from './services/auth.service';
+import {StorageService} from './services/storage.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './services/auth.interceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TicketService} from './modules/helpdesk/services/ticket.service';
+import {AuthGuardService} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +17,21 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    TicketService,
+    StorageService,
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
