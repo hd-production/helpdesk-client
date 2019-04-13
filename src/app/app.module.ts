@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AuthService} from "./services/auth.service";
-import {StorageService} from "./services/storage.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthInterceptor} from "./services/auth.interceptor";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {TicketService} from "./modules/helpdesk/services/ticket.service";
+import {AuthService} from './services/auth.service';
+import {StorageService} from './services/storage.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './services/auth.interceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TicketService} from './modules/helpdesk/services/ticket.service';
 
 @NgModule({
   declarations: [

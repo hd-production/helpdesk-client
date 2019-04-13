@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TicketListItem, TicketsListDataSource} from "./tickets-list-datasource";
-import {Observable} from "rxjs";
+import {TicketListItem, TicketsListDataSource} from './tickets-list-datasource';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-tickets-list',

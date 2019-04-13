@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 export interface TicketListItem {
   id: number;
   issue: string;
-  assigneeId? : number;
+  assigneeId?: number;
 }
 
 @Injectable()

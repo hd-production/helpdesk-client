@@ -1,10 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TicketListItem, TicketsListDataSource} from "../tickets-list/tickets-list-datasource";
-import {Observable, Subject} from "rxjs";
-import {TicketPageDataSource} from "./ticket-page-datasource";
-import {Ticket} from "../../../models/ticket";
-import {MatDialog} from "@angular/material";
-import {TicketService} from "../../../services/ticket.service";
+import {Component, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
+import {Ticket} from '../../../models/ticket';
+import {MatDialog} from '@angular/material';
+import {TicketService} from '../../../services/ticket.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-ticket-page',
@@ -18,12 +17,13 @@ export class TicketPageComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private ticketService: TicketService
+    private ticketService: TicketService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.ticketService.get(id).subscribe(t => this.ticketSubject.next(t))
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.ticketService.get(id).subscribe(t => this.ticketSubject.next(t));
   }
 
 }
