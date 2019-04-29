@@ -1,22 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TicketListItem, TicketsListDataSource} from './tickets-list-datasource';
-import {Observable} from 'rxjs';
+import {Component, Input} from '@angular/core';
+import {Ticket} from '../../../models/ticket';
 
 @Component({
   selector: 'app-tickets-list',
   templateUrl: './tickets-list.component.html',
   styleUrls: ['./tickets-list.component.scss']
 })
-export class TicketsListComponent implements OnInit {
-  dataSource: TicketsListDataSource;
+export class TicketsListComponent {
+
   @Input()
-  public ticketsObservable: Observable<TicketListItem[]>;
+  public tickets: Ticket[];
 
   constructor() {}
-
-  displayedColumns = ['id', 'issue'];
-
-  ngOnInit() {
-    this.dataSource = new TicketsListDataSource(this.ticketsObservable);
-  }
 }

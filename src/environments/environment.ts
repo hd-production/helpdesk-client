@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api: {
     protocol: 'http',
-    host: '192.168.128.22',
+    host: 'localhost',
     port: '5001',
     prefix: 'v0',
     getUrl() {

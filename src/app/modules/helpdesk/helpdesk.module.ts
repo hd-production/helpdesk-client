@@ -9,9 +9,16 @@ import {TicketPageComponent} from './components/tickets/ticket-page/ticket-page.
 import {MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatCardModule, MatFormFieldModule,
   MatInputModule,
   MatToolbarModule} from '@angular/material';
+import {TicketListItemComponent} from './components/tickets/tickets-list/ticket-list-item/ticket-list-item.component';
 
 @NgModule({
-  declarations: [HelpdeskComponent, TicketsListComponent, TicketsComponent, TicketPageComponent],
+  declarations: [
+    HelpdeskComponent,
+    TicketsListComponent,
+    TicketsComponent,
+    TicketPageComponent,
+    TicketListItemComponent
+  ],
   imports: [
     CommonModule,
     HelpdeskRoutingModule,

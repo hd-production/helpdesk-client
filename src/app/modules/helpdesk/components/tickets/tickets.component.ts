@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable, Subject} from 'rxjs';
 import {MatDialog} from '@angular/material';
-import {TicketService} from "../../services/ticket.service";
-import {TicketListItem} from "./tickets-list/tickets-list-datasource";
+import {TicketService} from '../../services/ticket.service';
+import {Ticket} from '../../models/ticket';
 
 @Component({
   selector: 'app-tickets',
@@ -11,8 +10,7 @@ import {TicketListItem} from "./tickets-list/tickets-list-datasource";
 })
 export class TicketsComponent implements OnInit {
 
-  private ticketsSubject = new Subject<TicketListItem[]>();
-  public ticketsObservable = this.ticketsSubject.asObservable();
+  public tickets: Ticket[];
 
   constructor(
     private dialog: MatDialog,
@@ -21,7 +19,9 @@ export class TicketsComponent implements OnInit {
 
   ngOnInit() {
     this.ticketService.find()
-      .subscribe(tickets => this.ticketsSubject.next(tickets));
+      .subscribe(tickets => {
+        this.tickets = tickets;
+      });
   }
 
 }

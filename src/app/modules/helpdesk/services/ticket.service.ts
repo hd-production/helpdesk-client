@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../../..//environments/environment';
-import {Ticket} from "../models/ticket";
-import {TicketListItem} from "../components/tickets/tickets-list/tickets-list-datasource";
+import {environment} from '../../../../environments/environment';
+import {Ticket} from '../models/ticket';
 
 const TICKET_URL = `${environment.api.getUrl()}/tickets/admin`;
 
@@ -13,8 +12,8 @@ export class TicketService {
     private http: HttpClient
   ) {}
 
-  public find(): Observable<TicketListItem[]> {
-    return this.http.get(TICKET_URL) as Observable<TicketListItem[]>;
+  public find(): Observable<Ticket[]> {
+    return this.http.get(TICKET_URL) as Observable<Ticket[]>;
   }
 
   public get(id: number): Observable<Ticket> {
