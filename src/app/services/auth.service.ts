@@ -4,7 +4,7 @@ import {Md5} from 'ts-md5';
 import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 import {StorageService} from './storage.service';
 import {LoginResponse} from '../modules/auth/models/login-response';
 import {of} from 'rxjs';
@@ -23,13 +23,13 @@ export class AuthService {
     private storageService: StorageService
   ) {}
 
-  public login(loginForm: LoginForm): Observable<string> {
+  public login(loginForm: LoginForm): Observable<void> {
     const loginData = this.hashPassword(loginForm);
     return this.http.post(SESSIONS_URL, loginData).pipe(
-      switchMap((res: LoginResponse) => {
+      map((res: LoginResponse) => {
         this.storageService.store('token', res.token);
         this.storageService.store('refreshToken', res.refreshToken);
-        return of(res.token);
+        return;
       })
     );
   }
