@@ -29,7 +29,7 @@ export class AuthGuardService implements CanActivate, CanLoad {
   private handle() {
     const isAuthorized = this.authService.isAuthorized();
     if (!isAuthorized) {
-      this.router.navigate(['auth']);
+      this.router.navigate(['login']);
     }
     return isAuthorized;
   }

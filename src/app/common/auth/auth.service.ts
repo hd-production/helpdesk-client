@@ -1,17 +1,15 @@
 import {Injectable} from '@angular/core';
-import {LoginForm} from '../modules/auth/models/login-form';
+import {LoginForm} from './login/login-form';
 import {Md5} from 'ts-md5';
 import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {map, switchMap} from 'rxjs/operators';
-import {StorageService} from './storage.service';
-import {LoginResponse} from '../modules/auth/models/login-response';
+import {StorageService} from '../storage/storage.service';
+import {LoginResponse} from './login/login-response';
 import {of} from 'rxjs';
 import * as jwtDecode from 'jwt-decode';
-import {RegisterForm} from '../modules/auth/models/register-form';
 
-const USERS_URL = `${environment.api.getUrl()}/users`;
 const SESSIONS_URL = `${environment.api.getUrl()}/sessions`;
 const MILLISECONDS_IN_SECOND = 1000;
 
@@ -32,11 +30,6 @@ export class AuthService {
         return;
       })
     );
-  }
-
-  public register(registerForm: RegisterForm): Observable<object> {
-    const loginData = this.hashPassword(registerForm);
-    return this.http.post(USERS_URL, loginData);
   }
 
   public isAuthorized(): boolean {
@@ -60,7 +53,7 @@ export class AuthService {
       );
   }
 
-  private hashPassword(form: LoginForm | RegisterForm) {
+  private hashPassword(form: LoginForm) {
     return {
       ...form,
       password: undefined,

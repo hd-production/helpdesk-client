@@ -10,6 +10,7 @@ import {MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatC
   MatInputModule,
   MatToolbarModule} from '@angular/material';
 import {TicketListItemComponent} from './components/tickets/tickets-list/ticket-list-item/ticket-list-item.component';
+import {TicketService} from './services/ticket.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,9 @@ import {TicketListItemComponent} from './components/tickets/tickets-list/ticket-
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule
+  ],
+  providers: [
+    TicketService
   ]
 })
 export class HelpdeskModule { }

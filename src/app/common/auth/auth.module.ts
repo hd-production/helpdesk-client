@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
+import {AuthService} from './auth.service';
+import {AuthGuardService} from './auth-guard.service';
 
 
 const routes: Routes = [
@@ -21,6 +24,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RegisterComponent, LoginComponent]
+  providers: [
+    AuthGuardService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  declarations: [LoginComponent]
 })
 export class AuthModule { }
