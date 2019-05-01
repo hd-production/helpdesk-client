@@ -10,6 +10,7 @@ import {AuthInterceptor} from './services/auth.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TicketService} from './modules/helpdesk/services/ticket.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {AuthGuardService} from './services/auth-guard.service';
     TicketService,
     StorageService,
     AuthGuardService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service';
+import {UserModel} from '../../models/user.model';
 
 @Component({
   selector: 'app-helpdesk',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpdeskComponent implements OnInit {
 
-  constructor() { }
+  public user: UserModel;
+
+  constructor(
+    private readonly userService: UserService
+  ) { }
 
   ngOnInit() {
+    this.userService.getCurrentUser()
+      .subscribe(user => {
+        this.user = user;
+      });
   }
-
 }
