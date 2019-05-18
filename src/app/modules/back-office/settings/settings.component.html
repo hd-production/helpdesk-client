@@ -1,6 +1,6 @@
-Statuses:
-<app-id-name-ticket-attribute [observable]="ticketStatusesObservable"></app-id-name-ticket-attribute>
-Priorities:
-<app-id-name-ticket-attribute [observable]="ticketPrioritiesObservable"></app-id-name-ticket-attribute>
-Categories:
-<app-id-name-ticket-attribute [observable]="ticketCategoriesObservable"></app-id-name-ticket-attribute>
+<p>Statuses:</p>
+<app-ticket-attribute-settings [ticketAttributeService]="ticketStatusesService"></app-ticket-attribute-settings>
+<p>Priorities:</p>
+<app-ticket-attribute-settings [ticketAttributeService]="ticketPrioritiesService"></app-ticket-attribute-settings>
+<p>Categories:</p>
+<app-ticket-attribute-settings [ticketAttributeService]="ticketCategoriesService"></app-ticket-attribute-settings>

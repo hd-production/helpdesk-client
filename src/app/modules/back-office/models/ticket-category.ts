@@ -1,4 +1,4 @@
-import {IdNameTicketAttribute} from "./id-name-ticket-attribute";
+import {TicketAttribute} from "./ticket-attribute";
 
-export class TicketCategory extends IdNameTicketAttribute {
+export class TicketCategory extends TicketAttribute {
 }
