@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', loadChildren: './modules/dashboard/dashboard.module#DashboardModule', canLoad: [AuthGuardService] },
   { path: 'helpdesk', loadChildren: './modules/helpdesk/helpdesk.module#HelpdeskModule', canLoad: [AuthGuardService] },
+  { path: 'back-office', loadChildren: './modules/back-office/back-office.module#BackOfficeModule', canLoad: [AuthGuardService] },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard'}
 ];
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../common/user/user.service';
-import {UserModel} from '../common/user/user.model';
+import {UserModel} from "../../common/user/user.model";
+import {UserService} from "../../common/user/user.service";
 
 @Component({
   selector: 'app-helpdesk',

@@ -18,4 +18,8 @@ export class DashboardComponent implements OnInit {
   public toHelpdesk(): void {
     this.router.navigate(['/helpdesk'])
   }
+
+  public toBackOffice(): void {
+    this.router.navigate(['/back-office'])
+  }
 }

@@ -8,7 +8,6 @@ import {StorageService} from './common/storage/storage.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './common/auth/auth.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TicketService} from './helpdesk/services/ticket.service';
 import {AuthGuardService} from './common/auth/auth-guard.service';
 import {UserService} from './common/user/user.service';
 import {CommonModule} from './common/common.module';
