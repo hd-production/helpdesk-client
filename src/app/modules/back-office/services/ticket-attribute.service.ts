@@ -1,12 +1,9 @@
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../../../environments/environment';
-import {TicketAttribute} from "../models/ticket-attribute";
+import {TicketAttribute} from '../models/ticket-attribute';
 
-export class TicketAttributeService {
-  constructor(
-    protected http: HttpClient
-  ) {}
+export abstract class TicketAttributeService {
+  protected http: HttpClient;
 
   public get(): Observable<TicketAttribute[]> {
     return this.http.get(this.getUri()) as Observable<TicketAttribute[]>;
@@ -24,7 +21,5 @@ export class TicketAttributeService {
     return this.http.delete(`${this.getUri()}/${id}`) as Observable<unknown>;
   }
 
-  protected getUri() {
-    return `${environment.api.getUrl()}`;
-  }
+  protected abstract getUri(): string;
 }

@@ -11,7 +11,7 @@ import {TicketAttribute} from "../../../models/ticket-attribute";
 export class TicketAttributeListComponent implements OnInit {
   dataSource: TicketAttributeListDataSource;
   @Input() public observable: Observable<TicketAttribute[]>;
-  // @Output itemDeleted: EventEmitter<number> = new EventEmitter();
+  @Output() itemDeleted: EventEmitter<number> = new EventEmitter();
 
   constructor() {}
 
@@ -23,7 +23,7 @@ export class TicketAttributeListComponent implements OnInit {
   }
 
   public removeItem(id: number): void{
-    // this.itemDeleted.emit(id);
+    this.itemDeleted.emit(id);
   }
 
 }

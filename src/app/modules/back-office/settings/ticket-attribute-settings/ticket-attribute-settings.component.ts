@@ -4,7 +4,7 @@ import {TicketAttribute} from "../../models/ticket-attribute";
 import {TicketAttributeService} from "../../services/ticket-attribute.service";
 import {MatDialog} from "@angular/material";
 import {AddTicketAttributeComponent} from "./add-ticket-attribute/add-ticket-attribute.component";
-import {switchMap} from "rxjs/operators";
+import {switchMap, filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-ticket-attribute-settings',
@@ -24,26 +24,22 @@ export class TicketAttributeSettingsComponent implements OnInit {
 
   ngOnInit() {
     this.ticketAttributeService.get()
-      .subscribe(attributes => this.ticketAttributesSubject.next(attributes));
+      .subscribe(data => this.ticketAttributesSubject.next(data));
   }
 
   public addTicketAttribute(): void {
     const dialogRef = this.dialog.open(AddTicketAttributeComponent);
-    dialogRef.afterClosed().subscribe((data) => {
-      if (!data) {
-        return;
-      }
-      console.log(data);
-
-      this.ticketAttributeService.create(data).pipe(
-        switchMap(() => this.ticketAttributeService.get())
-      )
-        .subscribe(data2 => this.ticketAttributesSubject.next(data2));
-    });
+    dialogRef.afterClosed().pipe(
+      filter(data => Boolean(data)),
+      switchMap(data => this.ticketAttributeService.create(data)),
+      switchMap(() => this.ticketAttributeService.get())
+    ).subscribe(data => this.ticketAttributesSubject.next(data));
   }
 
   public removeTicketAttribute(id: number): void{
-    console.log('works')
+    this.ticketAttributeService.remove(id).pipe(
+      switchMap(() => this.ticketAttributeService.get())
+    ).subscribe(data => this.ticketAttributesSubject.next(data));
   }
 
 }
