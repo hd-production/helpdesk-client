@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  public toRegistration(): void{
+    this.router.navigate(['/register'])
+  }
+
   public submit(): void {
     this.authService.login(this.loginForm.value)
       .subscribe(

@@ -4,6 +4,7 @@ import {Ticket} from '../../../models/ticket';
 import {MatDialog} from '@angular/material';
 import {TicketService} from '../../../services/ticket.service';
 import {ActivatedRoute} from '@angular/router';
+import {async} from "q";
 
 @Component({
   selector: 'app-ticket-page',

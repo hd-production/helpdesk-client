@@ -1,12 +1,13 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>{{ticket.issue}}</mat-card-title>
+      <mat-card-title (click)="edit(ticket.id)">{{ticket.issue}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p>
         {{ticket.details}}
       </p>
     </mat-card-content>
+
   </mat-card>
 </div>

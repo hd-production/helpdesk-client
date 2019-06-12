@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Ticket} from '../models/ticket';
 
-const TICKET_URL = `${environment.api.getUrl()}/tickets/admin`;
+const TICKET_URL = `${environment.api.getUrl()}/tickets`;
 
 @Injectable()
 export class TicketService {
