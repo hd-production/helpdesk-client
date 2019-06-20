@@ -3,4 +3,6 @@ export class Ticket {
   issue: string;
   details: string;
   assigneeId?: number;
+  statusId: number;
+  priorityId: number;
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TicketStatusesService} from '../../../../../../../common/ticket-attributes/ticket-status/ticket-statuses.service';
 import {TicketStatus} from '../../../../../../../common/ticket-attributes/ticket-status/ticket-status';
 
@@ -10,7 +10,11 @@ import {TicketStatus} from '../../../../../../../common/ticket-attributes/ticket
 export class StatusSelectComponent implements OnInit {
 
   @Input()
-  public predefinedStatusId: number;
+  public statusId: number;
+
+  @Output()
+  public statusIdChange: EventEmitter<number> = new EventEmitter();
+
   public ticketStatuses: TicketStatus[];
 
   constructor(
@@ -20,6 +24,10 @@ export class StatusSelectComponent implements OnInit {
   ngOnInit() {
     this.ticketStatusService.get()
       .subscribe(ts => this.ticketStatuses = ts);
+  }
+
+  public statusChange(newStatusId) {
+    this.statusIdChange.emit(newStatusId);
   }
 
 }
