@@ -8,9 +8,9 @@ export abstract class TicketAttributeService {
   protected cache: TicketAttribute[];
 
   public get(): Observable<TicketAttribute[]> {
-    if (this.cache) {
-      return of(this.cache);
-    }
+    // if (this.cache) {
+    //   return of(this.cache);
+    // }
 
     return this.updateCache();
   }
