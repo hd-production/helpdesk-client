@@ -1,5 +1,5 @@
 <p>
   dashboard works!
-  <button (click)="toHelpdesk()">To helpdesk</button>
-  <button (click)="toBackOffice()">To back office</button>
+  <button *ngIf="userIsSupportAgent" (click)="toHelpdesk()">To helpdesk</button>
+  <button *ngIf="userIsAdmin" (click)="toBackOffice()">To back office</button>
 </p>
