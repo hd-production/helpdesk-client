@@ -8,12 +8,10 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {AuthService} from './auth.service';
 import {AuthGuardService} from './auth-guard.service';
-import {RegisterComponent} from "./register/register.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: '', pathMatch: 'full', redirectTo: 'login' },
 ];
 
@@ -35,6 +33,6 @@ const routes: Routes = [
       multi: true
     }
   ],
-  declarations: [LoginComponent, RegisterComponent]
+  declarations: [LoginComponent]
 })
 export class AuthModule { }

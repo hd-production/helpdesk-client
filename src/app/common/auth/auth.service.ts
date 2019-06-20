@@ -9,9 +9,7 @@ import {StorageService} from '../storage/storage.service';
 import {LoginResponse} from './login/login-response';
 import {of} from 'rxjs';
 import * as jwtDecode from 'jwt-decode';
-import {RegisterForm} from "./register/register-form";
 
-const USERS_URL = `${environment.api.getUrl()}/users`;
 const SESSIONS_URL = `${environment.api.getUrl()}/sessions`;
 const MILLISECONDS_IN_SECOND = 1000;
 
@@ -32,11 +30,6 @@ export class AuthService {
         return;
       })
     );
-  }
-
-  public register(registerForm: RegisterForm): Observable<object> {
-    const loginData = this.hashPassword(registerForm);
-    return this.http.post(USERS_URL, loginData);
   }
 
   public isAuthorized(): boolean {

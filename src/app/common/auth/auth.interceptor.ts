@@ -35,6 +35,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private logOut() {
     this.storageService.clear();
-    this.router.navigate(['/auth']);
+    this.router.navigate(['login']);
   }
 }
