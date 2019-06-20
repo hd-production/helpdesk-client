@@ -1,13 +1,19 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>{{ticket.issue}} <app-status-select (statusIdChange)="statusUpdated($event)" [statusId]="ticket.statusId"> </app-status-select></mat-card-title>
+      <mat-card-title>{{ticket.issue}}
+        <app-status-select (statusIdChange)="statusUpdated($event)" [statusId]="ticket.statusId">
+        </app-status-select>
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p>
         {{ticket.details}}
       </p>
     </mat-card-content>
+    <app-list-comment [comments]="ticket.comments">
 
+    </app-list-comment>
+    <app-add-comment (sendComment)="sendComment($event)"></app-add-comment>
   </mat-card>
 </div>

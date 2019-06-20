@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Ticket} from '../models/ticket';
+import {Comment} from '../models/comment';
 
 const TICKET_URL = `${environment.api.getUrl()}/tickets`;
 
@@ -30,5 +31,9 @@ export class TicketService {
 
   public remove(id: number): Observable<unknown> {
     return this.http.delete(`${TICKET_URL}/${id}`) as Observable<unknown>;
+  }
+
+  public addComment(ticketId: number, comment: Comment) {
+    return this.http.post(`${TICKET_URL}/${ticketId}/comment`, comment);
   }
 }

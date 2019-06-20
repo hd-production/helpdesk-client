@@ -1,3 +1,5 @@
+import {Comment} from './comment';
+
 export class Ticket {
   id?: number;
   issue: string;
@@ -5,4 +7,5 @@ export class Ticket {
   assigneeId?: number;
   statusId: number;
   priorityId: number;
+  comments: Comment[];
 }
