@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material";
-import {TicketStatusesService} from "../services/ticket-statuses.service";
-import {TicketCategoriesService} from "../services/ticket-categories.service";
-import {TicketPrioritiesService} from "../services/ticket-priorities.service";
+import {TicketStatusesService} from "../../../common/ticket-attributes/ticket-status/ticket-statuses.service";
+import {TicketCategoriesService} from "../../../common/ticket-attributes/ticket-category/ticket-categories.service";
+import {TicketPrioritiesService} from "../../../common/ticket-attributes/ticket-priority/ticket-priorities.service";
 
 @Component({
   selector: 'app-settings',

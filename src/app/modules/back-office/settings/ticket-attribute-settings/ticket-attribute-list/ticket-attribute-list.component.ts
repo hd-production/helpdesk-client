@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Observable} from "rxjs";
-import {TicketAttributeListDataSource} from "./ticket-attribute-list-data-source.service";
-import {TicketAttribute} from "../../../models/ticket-attribute";
+import {Observable} from 'rxjs';
+import {TicketAttributeListDataSource} from './ticket-attribute-list-data-source.service';
+import {TicketAttribute} from '../../../../../common/ticket-attributes/ticket-attribute';
 
 @Component({
   selector: 'app-ticket-attribute-list',
@@ -22,7 +22,7 @@ export class TicketAttributeListComponent implements OnInit {
     this.dataSource = new TicketAttributeListDataSource(this.observable);
   }
 
-  public removeItem(id: number): void{
+  public removeItem(id: number): void {
     this.itemDeleted.emit(id);
   }
 

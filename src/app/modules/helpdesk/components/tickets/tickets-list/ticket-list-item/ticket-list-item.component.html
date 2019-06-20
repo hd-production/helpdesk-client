@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title (click)="edit(ticket.id)">{{ticket.issue}}</mat-card-title>
+      <mat-card-title>{{ticket.issue}} <app-status-select [predefinedStatusId]="ticket.id"> </app-status-select></mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p>

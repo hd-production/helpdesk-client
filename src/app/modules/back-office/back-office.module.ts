@@ -9,14 +9,11 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatTableModule, MatToolbarModule
-} from "@angular/material";
-import {ReactiveFormsModule} from "@angular/forms";
-import {BackOfficeRoutingModule} from "./back-office-routing-module";
-import {TicketAttributeListComponent} from "./settings/ticket-attribute-settings/ticket-attribute-list/ticket-attribute-list.component";
-import {TicketAttributeSettingsComponent} from "./settings/ticket-attribute-settings/ticket-attribute-settings.component";
-import {TicketStatusesService} from "./services/ticket-statuses.service";
-import {TicketCategoriesService} from "./services/ticket-categories.service";
-import {TicketPrioritiesService} from "./services/ticket-priorities.service";
+} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BackOfficeRoutingModule} from './back-office-routing-module';
+import {TicketAttributeListComponent} from './settings/ticket-attribute-settings/ticket-attribute-list/ticket-attribute-list.component';
+import {TicketAttributeSettingsComponent} from './settings/ticket-attribute-settings/ticket-attribute-settings.component';
 import { AddTicketAttributeComponent } from './settings/ticket-attribute-settings/add-ticket-attribute/add-ticket-attribute.component';
 
 
@@ -37,13 +34,8 @@ import { AddTicketAttributeComponent } from './settings/ticket-attribute-setting
     MatToolbarModule,
     BackOfficeRoutingModule
   ],
-  entryComponents:[
+  entryComponents: [
     AddTicketAttributeComponent
-  ],
-  providers: [
-    TicketStatusesService,
-    TicketCategoriesService,
-    TicketPrioritiesService
   ]
 })
 export class BackOfficeModule { }

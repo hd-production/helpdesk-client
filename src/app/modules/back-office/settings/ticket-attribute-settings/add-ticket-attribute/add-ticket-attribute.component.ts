@@ -21,7 +21,7 @@ export class AddTicketAttributeComponent implements OnInit {
   }
 
   public submit() {
-    if(!this.createForm.value.name){
+    if(!this.createForm.value.name) {
       return;
     }
     this.matDialogRef.close(this.createForm.value);

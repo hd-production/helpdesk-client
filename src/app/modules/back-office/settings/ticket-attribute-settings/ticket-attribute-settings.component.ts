@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable, Subject} from "rxjs";
-import {TicketAttribute} from "../../models/ticket-attribute";
-import {TicketAttributeService} from "../../services/ticket-attribute.service";
+import {TicketAttribute} from "../../../../common/ticket-attributes/ticket-attribute";
+import {TicketAttributeService} from "../../../../common/ticket-attributes/ticket-attribute.service";
 import {MatDialog} from "@angular/material";
 import {AddTicketAttributeComponent} from "./add-ticket-attribute/add-ticket-attribute.component";
 import {switchMap, filter} from "rxjs/operators";

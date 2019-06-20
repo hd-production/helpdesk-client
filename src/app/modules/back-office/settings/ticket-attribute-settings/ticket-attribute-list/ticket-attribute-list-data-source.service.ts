@@ -1,7 +1,7 @@
 import { DataSource } from '@angular/cdk/collections';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {TicketAttribute} from "../../../models/ticket-attribute";
+import {TicketAttribute} from "../../../../../common/ticket-attributes/ticket-attribute";
 
 
 @Injectable()
