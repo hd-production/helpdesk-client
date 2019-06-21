@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-select [value]="predefinedStatusId">
+  <mat-select (valueChange)="statusChange($event)" [value]="statusId">
     <mat-option *ngFor="let ts of ticketStatuses" [value]="ts.id">
       {{ts.name}}
     </mat-option>

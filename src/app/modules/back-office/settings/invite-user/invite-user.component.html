@@ -1,0 +1,26 @@
+Invite user section:
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Email" [(ngModel)]="userEmail">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="First name" [(ngModel)]="firstName">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Last name" [(ngModel)]="lastName">
+</mat-form-field>
+
+role:
+<mat-form-field>
+  <mat-select [(value)]=role>
+    <mat-option value="admin">
+      Admin
+    </mat-option>
+    <mat-option value="support-agent">
+      Agent
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="inviteUser()">Send</button>
+

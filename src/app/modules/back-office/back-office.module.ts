@@ -6,20 +6,22 @@ import {
   MatCardModule,
   MatDialogModule,
   MatFormFieldModule, MatInputModule,
-  MatPaginatorModule,
+  MatPaginatorModule, MatSelectModule,
   MatSortModule,
   MatTableModule, MatToolbarModule
 } from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BackOfficeRoutingModule} from './back-office-routing-module';
 import {TicketAttributeListComponent} from './settings/ticket-attribute-settings/ticket-attribute-list/ticket-attribute-list.component';
 import {TicketAttributeSettingsComponent} from './settings/ticket-attribute-settings/ticket-attribute-settings.component';
 import { AddTicketAttributeComponent } from './settings/ticket-attribute-settings/add-ticket-attribute/add-ticket-attribute.component';
+import { InviteUserComponent } from './settings/invite-user/invite-user.component';
+import {InviteUserService} from './settings/invite-user/invite-user.service';
 
 
 @NgModule({
   declarations: [
-    SettingsComponent, TicketAttributeListComponent, TicketAttributeSettingsComponent, AddTicketAttributeComponent],
+    SettingsComponent, TicketAttributeListComponent, TicketAttributeSettingsComponent, AddTicketAttributeComponent, InviteUserComponent],
   imports: [
     CommonModule,
     MatTableModule,
@@ -32,10 +34,16 @@ import { AddTicketAttributeComponent } from './settings/ticket-attribute-setting
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
-    BackOfficeRoutingModule
+    BackOfficeRoutingModule,
+    FormsModule,
+    MatSelectModule
   ],
   entryComponents: [
     AddTicketAttributeComponent
+  ],
+  providers: [
+    InviteUserService
   ]
+
 })
 export class BackOfficeModule { }
