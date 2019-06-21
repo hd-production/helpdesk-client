@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {UserService} from '../../common/user/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,17 +10,18 @@ import {Router} from "@angular/router";
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-  }
 
-  public toHelpdesk(): void {
-    this.router.navigate(['/helpdesk'])
-  }
+    if (this.userService.hasPermission('admin')) {
+      this.router.navigate(['/back-office']);
+    }
 
-  public toBackOffice(): void {
-    this.router.navigate(['/back-office'])
+    if (this.userService.hasPermission('support-agent')) {
+      this.router.navigate(['/helpdesk']);
+    }
   }
 }
