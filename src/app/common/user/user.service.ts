@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {UserModel} from './user.model';
-import {StorageService} from "../storage/storage.service";
+import {StorageService} from '../storage/storage.service';
 import * as jwtDecode from 'jwt-decode';
 
 const USERS_URL = `${environment.api.getUrl()}/users`;
@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.get(`${USERS_URL}/me`) as Observable<UserModel>;
   }
 
-  public hasPermission(permission: string): boolean{
+  public hasPermission(permission: string): boolean {
     const token = this.storageService.get('token');
     if (!token) {
       return false;
