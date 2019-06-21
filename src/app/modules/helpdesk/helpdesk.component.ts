@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserModel} from '../../common/user/user.model';
 import {UserService} from '../../common/user/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-helpdesk',
@@ -12,7 +13,8 @@ export class HelpdeskComponent implements OnInit {
   public user: UserModel;
 
   constructor(
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit() {
@@ -20,5 +22,10 @@ export class HelpdeskComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       });
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 }

@@ -4,6 +4,7 @@ import {TicketCategoriesService} from '../../../common/ticket-attributes/ticket-
 import {TicketPrioritiesService} from '../../../common/ticket-attributes/ticket-priority/ticket-priorities.service';
 import {UserModel} from '../../../common/user/user.model';
 import {UserService} from '../../../common/user/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -19,6 +20,7 @@ export class SettingsComponent implements OnInit {
     public ticketCategoriesService: TicketCategoriesService,
     public ticketPrioritiesService: TicketPrioritiesService,
     private readonly userService: UserService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit() {
@@ -26,5 +28,10 @@ export class SettingsComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       });
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 }

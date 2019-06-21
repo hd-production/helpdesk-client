@@ -5,7 +5,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
-  MatFormFieldModule, MatInputModule,
+  MatFormFieldModule, MatIconModule, MatInputModule,
   MatPaginatorModule, MatSelectModule,
   MatSortModule,
   MatTableModule, MatToolbarModule
@@ -36,7 +36,8 @@ import {InviteUserService} from './settings/invite-user/invite-user.service';
     MatToolbarModule,
     BackOfficeRoutingModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   entryComponents: [
     AddTicketAttributeComponent

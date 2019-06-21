@@ -8,7 +8,7 @@ import {TicketsComponent} from './components/tickets/tickets.component';
 import {
   MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatCardModule, MatFormFieldModule,
   MatInputModule,
-  MatToolbarModule, MatSelectModule
+  MatToolbarModule, MatSelectModule, MatIconModule
 } from '@angular/material';
 import {TicketListItemComponent} from './components/tickets/tickets-list/ticket-list-item/ticket-list-item.component';
 import {TicketService} from './services/ticket.service';
@@ -40,6 +40,7 @@ import {ListCommentComponent} from './components/tickets/tickets-list/ticket-lis
     MatToolbarModule,
     MatSelectModule,
     FormsModule,
+    MatIconModule,
   ],
   providers: [
     TicketService
