@@ -1,3 +1,9 @@
+<mat-toolbar>
+  <div class="space-between" >
+    <span>Back office</span>
+    <span>{{user?.firstName}}</span>
+  </div>
+</mat-toolbar>
 <p>Statuses:</p>
 <app-ticket-attribute-settings [ticketAttributeService]="ticketStatusesService"></app-ticket-attribute-settings>
 <p>Priorities:</p>
