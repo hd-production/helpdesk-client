@@ -26,6 +26,12 @@ export class TicketListItemComponent implements OnInit {
       .subscribe(() => {});
   }
 
+  public priorityUpdated(newPriorityId) {
+    this.ticket.priorityId = newPriorityId;
+    this.ticketService.update(this.ticket.id, this.ticket)
+      .subscribe(() => {});
+  }
+
   public sendComment(comment) {
     this.ticketService.addComment(this.ticket.id, comment).pipe(
       switchMap(() => this.ticketService.get(this.ticket.id))

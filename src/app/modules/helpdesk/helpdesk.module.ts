@@ -15,6 +15,7 @@ import {TicketService} from './services/ticket.service';
 import {StatusSelectComponent} from './components/tickets/tickets-list/ticket-list-item/status-select/status-select.component';
 import {AddCommentComponent} from './components/tickets/tickets-list/ticket-list-item/add-comment/add-comment.component';
 import {ListCommentComponent} from './components/tickets/tickets-list/ticket-list-item/list-comment/list-comment.component';
+import {ProiritySelectComponent} from './components/tickets/tickets-list/ticket-list-item/priority-select/status-select.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ListCommentComponent} from './components/tickets/tickets-list/ticket-lis
     StatusSelectComponent,
     AddCommentComponent,
     ListCommentComponent,
+    ProiritySelectComponent,
   ],
   imports: [
     CommonModule,

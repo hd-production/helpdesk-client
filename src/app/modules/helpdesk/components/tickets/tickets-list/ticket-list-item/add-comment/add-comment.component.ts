@@ -20,6 +20,7 @@ export class AddCommentComponent implements OnInit {
 
   send() {
     this.sendComment.emit({text: this.commentText});
+    this.commentText = '';
   }
 
 }
